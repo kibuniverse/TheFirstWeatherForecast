@@ -22,10 +22,20 @@ li{
 	display: block;
 	clear: both;
 }
+.boxsilp{
+	width: 420px;
+	height: 39px;
+	float: left;
+    margin-bottom: 1px;
+	-webkit-transition: width 1s;
+}
 #searchbod{
+	width: 410px;
+	height: 40px;
 	position: absolute;
 	left: 900px;
     top: 158px;
+    overflow: hidden;
 }
 .searchbd{
 	width: 300px;
@@ -59,12 +69,23 @@ div .btnimg{
 }
 .top_tip{
 	width: 946px;
+	height: 176px;
     margin: 0 auto;
+    overflow: hidden;
     padding-top: 150px;
+}
+#top_boxsilp{
+	width: 946px;
+	height: 176px;
+	float: left;
+	-webkit-transition: width 1s;
 }
 #box{
 	width: 1033px;
     margin: 8px auto;
+}
+.top_text{
+	float: left;
 }
 .main{
 	width: 800px;
@@ -182,7 +203,7 @@ div li{
 }
 
 .boxmin{
-	width: 100px;
+	width: 112px;
 	height: 40px;
 	margin-left: 20px;
 	float: left;
@@ -301,7 +322,7 @@ div li{
 .life_index{
 	width: 304px;
     float: left;
-    background-color: rgba(89, 87, 87, .3);
+    background-color: rgba(89, 87, 87, .4);
     margin: 20px 0  0 20px;
     padding-bottom: 14px;
 }

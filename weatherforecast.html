@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -6,24 +6,27 @@
 </head>
 <body>
 	<div id="searchbod">
-		<input id="city" type="text" class="searchbd" value="请输入您要查找的城市" onfocus="if(this.value=='请输入您要查找的城市'){this.value='';this.style.color='#424242'}"><div id="search" class="btn" onclick="changeCity()"><img src="img/search_btn.png" class="btnimg">
+		<div class="boxsilp"></div><input id="city" type="text" class="searchbd" value="请输入您要查找的城市" onfocus="if(this.value=='请输入您要查找的城市'){this.value='';this.style.color='#424242'}"><div id="search" class="btn" onclick="changeCity()"><img src="img/search_btn.png" class="btnimg">
 		</div>
 	</div>
 	<div class="top_tip">
-		<p id="today_date_y"></p>
-		<span id="today_temper"></span>
-		<span id="today_weather"></span>
-		<span id="i_localhost"></span>
-		<div class="humwind">
-			<em id="humidity"></em>
-			<em id="wind"></em>
-			<em id="updata">aaa</em>
+		<div id="top_boxsilp"></div>
+		<div class="top_text">
+			<p id="today_date_y"></p>
+			<span id="today_temper"></span>
+			<span id="today_weather"></span>
+			<span id="i_localhost"></span>
+			<div class="humwind">
+				<em id="humidity"></em>
+				<em id="wind"></em>
+				<em id="updata">aaa</em>
+			</div>
+			<div class="top_advice">今日天气提示</div><div id="top-dressing_advice"></div>
 		</div>
-		<div class="top_advice">今日天气提示</div><div id="top-dressing_advice"></div>
 	</div>
 	<div id="box">
 		<div class="left">
-			<div style="background-color: rgba(89, 87, 87, .3);">
+			<div style="background-color: rgba(89, 87, 87, .4);">
 				<div class="lefthead">未来一周天气预报</div>
 				<p class="line" style="margin-bottom: 10px;"></p>
 				<div class="leftinfo">
@@ -97,7 +100,7 @@
 					<li></li>
 				</div>
 			</div>
-			<div id="content2" style="background-color: rgba(89, 87, 87, .3);">
+			<div id="content2" style="background-color: rgba(89, 87, 87, .4);">
 				<div class="c2text">24小时天气预报</div>
 				<p class="line" style="margin-bottom: 10px;"></p>
 				<div id="leftbtn" unselectable="on"onselectstart="return false;"style="-webkit-user-select: none;"><</div>
@@ -141,6 +144,5 @@
 			</div>
 		</div>  
 	</div>
-	<script type="text/javascript" src="dist/output.bundle.js"></script>
 </body>
 </html> 

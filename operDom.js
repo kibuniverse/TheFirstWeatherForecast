@@ -33,6 +33,12 @@ switch(Data.result.img){
 		body.style.backgroundSize = '100% 100%';
 		break;
 }
+
+setTimeout(function() {
+	document.getElementsByClassName('boxsilp')[0].style.width = 0;
+	document.getElementById('top_boxsilp').style.width = 0;
+
+}, 0);
 document.getElementById('leftbtn').addEventListener('click', function() {
     if(parseInt(drawing.style.left) <= -10){
     	var distant = 0;
@@ -66,3 +72,16 @@ for(var i = 0; i < 4; i ++) {
 	lifeli[i].getElementsByTagName('div')[0].innerHTML = indexArray[i+1].detail;
 	lifeli[i].getElementsByTagName('p')[0].innerHTML = indexArray[i+1].ivalue;
 }		
+
+var leftinfo = document.getElementsByClassName('leftinfo');
+	var Array = Data.result.daily;   //让未来7天的天气数据储存再Array数组中
+	console.log(Array);
+	for(var i = 0; i < 7; i++){
+		var li = leftinfo[i].getElementsByTagName('li');
+		li[0].innerHTML = Array[i].date;
+		li[1].innerHTML = Array[i].week;
+		li[2].getElementsByTagName('span')[0].innerHTML = Array[i].day.weather;
+		li[2].getElementsByTagName('img')[0].src = 'img/xtb_0' + Array[i].day.img + '.png';
+		li[3].innerHTML = Array[i].night.templow + ' / ' + Array[i].day.temphigh;
+		li[4].innerHTML = Array[i].day.winddirect + ' ' + Array[i].day.windpower;
+}
