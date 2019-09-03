@@ -5,6 +5,7 @@ window.data = function(res) {
     Data = JSON.parse(window.localStorage.getItem('applyParams'));
     document.body.insertBefore(script, document.body.firstChild);
 }
+
 window.datanew = function(resnew) {
     window.localStorage.setItem('applyParamsnew', JSON.stringify(resnew));
     Datanew = JSON.parse(window.localStorage.getItem('applyParamsnew'));
@@ -19,6 +20,7 @@ if (Datanew.msg == 'ok') {
 if(!Data){
     script.src = 'https://api.jisuapi.com/weather/query?appkey=c7d0b7a02369670e&city=西安&callback=data';
 }
+console.log(Data);
 window.changeCity = function() {
     var city = document.getElementById('city').value || '西安';
     console.log(city);
@@ -27,7 +29,6 @@ window.changeCity = function() {
 };
 require('./operDom.js');
 require('./canvas.js');
-
 require('./img/12.png');
 require('./img/17.png');
 require('./img/21.png');

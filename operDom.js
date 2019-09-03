@@ -7,6 +7,11 @@ document.getElementById('today_weather').innerHTML = Data.result.weather;
 document.getElementById('top-dressing_advice').innerHTML = Data.result.aqi.aqiinfo.measure;
 document.getElementById('updata').innerHTML = '~更新于' + Data.result.updatetime;
 var body = document.getElementsByTagName('body')[0];
+document.onkeydown = function(e) {
+	if(e.which == 13){
+		changeCity();
+	}
+}
 switch(Data.result.img){
 	case '0':
 		body.style.background = 'url(img/day_0.jpg)';
@@ -32,6 +37,10 @@ switch(Data.result.img){
 		body.style.background = 'url(img/day_3.jpg)';
 		body.style.backgroundSize = '100% 100%';
 		break;
+	case '301':
+		body.style.background = 'url(img/day_0.jpg)';
+		body.style.backgroundSize = '100% 100%';
+		break;
 }
 
 setTimeout(function() {
@@ -51,6 +60,37 @@ document.getElementById('leftbtn').addEventListener('click', function() {
     	}, 2);
     }
 }, false);
+
+var t1; // 鼠标持续按动是用来计时
+var t2; // 间隔多长时间后开始持续滑动
+document.getElementById('rightbtn').onmousedown = function() {
+	t2 = setTimeout(function() {
+		t1 = setInterval(function() {
+			if(parseInt(drawing.style.left) < -1320) {
+				clearInterval(t1);
+			}
+			drawing.style.left = parseInt(drawing.style.left) - 1 + 'px';
+		}, 1)
+	} , 500);
+}
+document.getElementById('rightbtn').onmouseup = function() {
+	clearInterval(t1);
+	clearTimeout(t2);
+}
+document.getElementById('leftbtn').onmousedown = function() {
+	t2 = setTimeout(function() {
+		t1 = setInterval(function() {
+			if(parseInt(drawing.style.left) > -10) {
+				clearInterval(t1);
+			}
+			drawing.style.left = parseInt(drawing.style.left) + 1 + 'px';
+		}, 1)
+	} , 500);
+}
+document.getElementById('leftbtn').onmouseup = function() {
+	clearInterval(t1);
+	clearTimeout(t2);
+}
 document.getElementById('rightbtn').onclick = function() {
 	if(parseInt(drawing.style.left) >= -1320){
     	var distant = 0;
@@ -65,14 +105,13 @@ document.getElementById('rightbtn').onclick = function() {
 }
 
 document.getElementById('winddytext').innerHTML = "风速" + Data.result.windspeed + 'm/s';
-document.getElementsByClassName('winddy')[0].getElementsByTagName('img')[0].style.WebkitAnimation = 'rot '+ (8 - Data.result.windspeed) + 's linear infinite';
+document.getElementsByClassName('winddy')[0].getElementsByTagName('img')[0].style.WebkitAnimation = 'rot '+ (15 / Data.result.windspeed) + 's linear infinite';
 var lifeli = document.getElementsByClassName('lifeli');
 var indexArray = Data.result.index;
 for(var i = 0; i < 4; i ++) {
 	lifeli[i].getElementsByTagName('div')[0].innerHTML = indexArray[i+1].detail;
 	lifeli[i].getElementsByTagName('p')[0].innerHTML = indexArray[i+1].ivalue;
 }		
-
 var leftinfo = document.getElementsByClassName('leftinfo');
 	var Array = Data.result.daily;   //让未来7天的天气数据储存再Array数组中
 	console.log(Array);
